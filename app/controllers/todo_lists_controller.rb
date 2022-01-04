@@ -8,6 +8,10 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1 or /todo_lists/1.json
   def show
+    
+    @task =Task.new
+    @tasks= @todo_list.tasks
+
   end
 
   # GET /todo_lists/new
@@ -49,9 +53,18 @@ class TodoListsController < ApplicationController
 
   # DELETE /todo_lists/1 or /todo_lists/1.json
   def destroy
+    
+    @tasks= @todo_list.tasks
+
+    if @tasks.present?
+      @tasks.destroy_all
+    end
     @todo_list.destroy
+    
+
+
     respond_to do |format|
-      format.html { redirect_to todo_lists_url, notice: "Todo list was successfully destroyed." }
+      format.html { redirect_to todo_lists_url, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
     end
   end

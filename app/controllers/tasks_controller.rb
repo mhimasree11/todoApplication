@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 
+    
 
     def create
         @task = Task.create(task_params)
@@ -26,9 +27,7 @@ class TasksController < ApplicationController
           @task.destroy
         end
         redirect_to todo_list_path(@task.todo_list_id)
-        
-           
-             
+              
         
     end
 

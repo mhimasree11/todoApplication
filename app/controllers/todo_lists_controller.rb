@@ -13,6 +13,15 @@ class TodoListsController < ApplicationController
     @tasks= @todo_list.tasks
 
   end
+  # GET /todo_lists/1/get-all-tasks
+  def showjson
+    @todo_list = TodoList.find(params[:id])
+
+    @tasks= @todo_list.tasks
+
+    render json: @tasks
+    
+  end
 
   # GET /todo_lists/new
   def new

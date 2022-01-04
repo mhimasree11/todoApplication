@@ -15,11 +15,10 @@
 <% @tasks.each do |task|%>
    <p><%= task.title%></p>
     <%= form_for task do |f|%>
-   <%= f.check_box :done, :value => task.done%>
-   <%=f.submit "Done"%>
-   <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-   <%end%>
+      <%= f.check_box :done, :value => task.done%>
+      <%=f.submit "Done"%>
+      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
 <% end %>
 
 <%= form_for @task do |f| %>
